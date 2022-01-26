@@ -15,10 +15,15 @@ export default {
     },
     props:{
         label:String,
+        value:String
     },
     methods:{
             pickData(){
+
             this.$emit("sendData",this.labelValue);
+        },
+        mounted() {
+            this.labelValue = this.value;
         },
     },
 }

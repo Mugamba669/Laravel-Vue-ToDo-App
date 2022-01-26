@@ -5,6 +5,7 @@
                  v-for="gp in formData"
                  :key="gp.id"
                  :label="gp.name"
+                 :value="clearField"
                  @sendData="sentData"
                  />
             <div class="form-group">
@@ -24,6 +25,7 @@ export default {
     data(){
         return{
             db:[],
+            clearField:"",
             formData:[
                 {
                     id:1,
@@ -61,9 +63,9 @@ export default {
                 item:item
             }).then(response => {
                     if(response.status == 201){
-                            document.querySelector("input[type='text']").value = "";
-                            item.name = "";
-                            item.category = "";
+                        document.querySelector("input").value = "";
+                            // document.querySelectorAll("input[type='text']").forEach = "";
+                           this.db = [];
                     }
             })
             .catch(error => console.log(error));
